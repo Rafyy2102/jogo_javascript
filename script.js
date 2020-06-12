@@ -72,7 +72,7 @@ function iniciarJogo(){
     criarBG();
     criarCobrinha();
     drawFood();
-    
+
     // redirecionanddo o movimento da cobrinha para que passa por traz da tela
     if(snake[0].x > 15 * box && direction == "right") snake[0].x = 0;
     if(snake[0].x < 0 && direction == "left") snake[0].x = 16 * box;
@@ -89,8 +89,17 @@ function iniciarJogo(){
     if(direction == "up") snakeY -= box;
     if(direction == "down") snakeY += box;
 
-    //pop retirar o ultimo elemento da array 
-    snake.pop();
+    //posição da comida e da cobrinha
+    if(snakeX != food.x || snakeY != food.y){
+
+        //pop retirar o ultimo elemento da array 
+        snake.pop();            
+    }else{
+
+        //Math.floor tira a flutação do math e randomm traz números aleatórios
+        food.x = Math.floor(Math.random() * 15 + 1) * box,
+        food.y = Math.floor(Math.random() * 15 + 1) * box
+    }    
 
     //crianco a variavel para acrescentar
     let newHead = {
@@ -98,7 +107,7 @@ function iniciarJogo(){
         y: snakeY
     }
     
-    //acrescentando a cabeça
+    //acrescentando mais uma cabeça
     snake.unshift(newHead);
 }
 
