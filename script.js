@@ -79,6 +79,13 @@ function iniciarJogo(){
     if(snake[0].y > 15 * box && direction == "down") snake[0].y = 0;
     if(snake[0].y < 0 && direction == "up") snake[0].y = 16 * box; 
 
+    //criando a função quando a cobrinha encostar sua cabeça na ponta da sua calda, restar o jogo
+    for(i = 1; i < snake.length; i++){
+        if(snake[0].x == snake[i].x && snake[0].y == snake[i].y){
+            clearInterval(jogo);
+            alert("GAME OVER :(");
+        }
+    }
     //ponto de partida do jogo
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
