@@ -32,10 +32,31 @@ function criarCobrinha(){
 
 }
 
+//evento do botão ao clicar
+document.addEventListener('keydown', update);
+
+//criando a função do evento do botão
+function update(event){
+    //o 37 indica a direção que é direita
+    if(event.keyCode == 37 && direction != 'right') direction = 'left';
+    //o 38 indica a direção que é para baixo
+    if(event.keyCode == 38 && direction != 'down') direction = 'up';
+    //o 39 indica a direção que é esquerda
+    if(event.keyCode == 39 && direction != 'left') direction = 'right';
+    //o 40 indica a direção que é para cima
+    if(event.keyCode == 40 && direction != 'up') direction = 'down';
+}
+
 //iniciando o jogo
 function iniciarJogo(){
     criarBG();
     criarCobrinha();
+
+    // redirecionanddo o movimento da cobrinha para que passa por traz da tela
+    if(snake[0].x > 15 * box && direction == "right") snake[0].x = 0;
+    if(snake[0].x < 0 && direction == "left") snake[0].x = 16 * box;
+    if(snake[0].y > 15 * box && direction == "down") snake[0].y = 0;
+    if(snake[0].y < 0 && direction == "up") snake[0].y = 16 * box; 
 
     //ponto de partida do jogo
     let snakeX = snake[0].x;
