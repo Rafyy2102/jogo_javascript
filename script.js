@@ -26,6 +26,8 @@ let food = {
     y: Math.floor(Math.random() * 15 + 1) * box
 }
 
+
+
 //criando o backgroud
 function criarBG(){
     //cor do backgroud
@@ -44,7 +46,7 @@ function criarCobrinha(){
 
 //criando a comida da cobrinha
 function drawFood(){
-    context.fillStyle = "#8B0000";
+    context.fillStyle = "red";
     context.fillRect(food.x, food.y, box, box);
 }
 

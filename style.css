@@ -5,6 +5,12 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color:rgb(47, 196, 255);
-    color:green;
+    text-align: center;
+    padding: 10px 0;
+    color:#000;
+    background: url(fundo.jpg);
+    background-repeat: no-repeat;
+    background-position: 5% 10%;
+    background-attachment: fixed; 
+    background-size: cover;
 }
